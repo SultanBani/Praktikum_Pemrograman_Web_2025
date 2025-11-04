@@ -1,6 +1,7 @@
 
 
 Navigasi dan Struktur
+
 Pertama, saya menggunakan git add . untuk menyeleksi semua file yang baru saya buat dan saya ubah termasuk style.css yang sudah di-update dan dua file HTML baru untuk Project dan Contact. Kemudian, saya menjalankan git commit -m "navigasi dan struktur baru". Ini penting. Dengan perintah ini, say menyimpan semua perubahan itu sebagai satu paket di riwayat lokal saya. Pesan commit-nya sudah jelas: 'navigasi dan struktur baru'. bisa dilihat di outputnya, ada 4 files changed dan dua file baru (contact.html dan project.html) sudah berhasil dibuat. Terakhir, saya menjalankan git push. Ini adalah langkah final untuk mengirim semua commit lokal yang saya buat tadi ke repositori saya di GitHub. Outputnya menunjukkan proses transfer datanya 100% selesai, dan perubahan dari commit terakhir saya (ID-nya 883eb05) sudah berhasil dikirim ke branch main.
 ![alt text](ImageFolder2/navStruk.jpeg)
 
