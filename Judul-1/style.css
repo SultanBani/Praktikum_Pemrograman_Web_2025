@@ -46,15 +46,15 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color); /* Garis pemisah tipis */
+    border-bottom: 1px solid var(--border-color); 
 }
 
 header .container {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: space-between; 
     align-items: center;
-    margin: 10px;
-
+    margin: 10px auto;
+    padding: 0 20px; 
 }
 
 header h1 {
@@ -62,6 +62,31 @@ header h1 {
     color:0F0E0E;
     font-weight: 700;
     margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 
@@ -95,8 +120,8 @@ header h1 {
 .profile-img {
     width: 280px; 
     height: 280px;
-    background-color: var(--border-color); /* Placeholder */
-    border-radius: 50%; /* Foto Bulat */
+    background-color: var(--border-color);
+    border-radius: 50%; 
     object-fit: cover;
     border: 5px solid var(--border-color); 
     box-shadow: 0 10px 20px var(--shadow-color);
@@ -149,6 +174,12 @@ section {
     padding: 80px 0;
     text-align: left;
     border-top: 1px solid var(--border-color);
+}
+
+section#pekerjaan, 
+section#kontak,
+section#pengetahuan {
+    min-height: 70vh; 
 }
 
 section:nth-child(even) { 
@@ -208,6 +239,23 @@ footer {
 
 
 @media (max-width: 768px) {
+    header .container {
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    header h1 {
+        margin-bottom: 10px;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0 10px; 
+    }
+
     .hero .container {
         flex-direction: column; 
         text-align: center;
