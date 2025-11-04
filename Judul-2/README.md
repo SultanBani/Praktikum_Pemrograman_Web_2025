@@ -1,1 +1,1 @@
-![alt text](Judul-2/ImageFolder2/branchExperimen.jpeg)
+![alt text](branchExperimen.jpeg)
