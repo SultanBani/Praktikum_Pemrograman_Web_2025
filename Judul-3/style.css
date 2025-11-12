@@ -1,0 +1,376 @@
+/*=============== VARIABLES CSS (Palet Pastel Dominasi Putih) ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+:root {
+    /* Palet Pastel */
+    --primary-accent: #C4DFDF; /* Teal Paling Gelap - Aksen, Tombol */
+    --secondary-accent: #D2E9E9; /* Pastel Teal - Latar Belakang Section */
+    --tertiary-accent: #E3F4F4; /* Faint Teal - Latar Belakang Contact */
+    
+    /* DOMINASI PUTIH/CERAH */
+    --body-bg: #FFFFFF; /* Latar Belakang Body Utama (Putih Murni) */
+    --header-bg: #FFFFFF; /* Latar Belakang Header (Putih Murni) */
+    --container-color: #FFFFFF; /* Latar belakang Card/Kontainer (Putih Murni) */
+    
+    /* WARNA KONTRAST */
+    --dark-text: hsl(230, 12%, 40%); /* Teks standar (Abu-abu gelap) */
+    --title-color: #333333; /* Judul dan Logo (Hampir Hitam) */
+
+    --first-color: var(--primary-accent); 
+    --text-color: var(--dark-text);
+    --body-color: var(--body-bg); 
+    --font-semi-bold: 600;
+}
+
+/*=============== BASE & LAYOUT UTAMA ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.938rem;
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+a { text-decoration: none; }
+
+/*=============== PENGATURAN LAYOUT MAIN ===============*/
+main {
+    flex-grow: 1; 
+    padding-top: 4.5rem; 
+}
+
+@media screen and (min-width: 1023px) {
+    main {
+        padding-top: 5rem; 
+    }
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg); /* Putih */
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .05); /* Shadow tipis agar Header menonjol */
+    z-index: 100;
+}
+
+.nav {
+    height: 4.5rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+}
+
+.nav__logo h3 {
+    color: var(--title-color); 
+    font-weight: 700;
+    font-size: 1.8rem; 
+    margin-bottom: 0;
+}
+
+.nav__list {
+    display: flex;
+    column-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__link {
+    color: var(--title-color);
+    font-weight: 500;
+    transition: color .4s;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav__link:hover {
+    color: var(--dark-text); 
+}
+
+/* Styling for active link */
+.nav__link.active-link {
+    color: var(--title-color) !important; 
+    position: relative;
+}
+
+.nav__link.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; 
+    height: 2px;
+    background-color: var(--primary-accent); /* Garis bawah accent */
+}
+
+@media screen and (min-width: 1023px) {
+    .nav__menu { display: flex !important; }
+    .nav__actions { display: none !important; }
+}
+
+/*=============== HERO SECTION ===============*/
+.hero-section {
+    background-color: var(--body-bg); /* Putih */
+    padding: 6rem 0;
+    border-bottom: 8px solid var(--secondary-accent); /* Garis pemisah accent */
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--title-color);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--dark-text);
+}
+
+.hero-cta {
+    padding: 0.75rem 2rem;
+    font-weight: var(--font-semi-bold);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--primary-accent); /* Warna CTA */
+    color: var(--title-color) !important; 
+    border: 2px solid var(--primary-accent);
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #B4D3D3; 
+}
+
+/*=============== FEATURE SECTION (3 LAYANAN UTAMA) ===============*/
+#features {
+    background-color: var(--tertiary-accent); /* Latar belakang Section 2 (Light Teal) */
+}
+
+.feature-card {
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: var(--container-color); /* Putih */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    border-bottom: 4px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-bottom-color: var(--primary-accent); 
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 15px;
+    background-color: var(--primary-accent); 
+    border-radius: 50%;
+    color: var(--title-color); 
+}
+
+.feature-card .fw-bold {
+     color: var(--title-color);
+}
+
+/*=============== ABOUT SECTION (Informasi Perusahaan) ===============*/
+.about-section-main {
+    padding: 4rem 0;
+    background-color: var(--body-bg); /* Putih */
+}
+
+.about-title-main {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+}
+
+.about-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.about-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.about-list i {
+    color: var(--primary-accent); 
+    margin-right: 0.5rem;
+}
+
+.about-section-main .btn {
+    background-color: var(--primary-accent);
+    color: var(--title-color) !important;
+}
+
+.about-section-main .btn:hover {
+    background-color: #B4D3D3;
+}
+
+/*=============== BAGIAN HUBUNGI KAMI (Formulir) ===============*/
+#contact {
+    background-color: var(--tertiary-accent); /* Latar belakang contact (Faint Teal) */
+}
+
+.hubungi-kami-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-section-kontak {
+    background-color: var(--secondary-accent); /* Latar Belakang Contact Info (Pastel Teal) */
+    color: var(--title-color);
+    width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-section-kontak h2, .about-section-kontak i {
+    color: var(--title-color);
+}
+
+.about-section-kontak p {
+    color: var(--dark-text);
+}
+
+
+.contact-form {
+    width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--container-color); /* Putih */
+}
+
+.contact-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--title-color); 
+    font-weight: 700;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid var(--primary-accent); 
+    border-radius: 8px;
+    background-color: var(--body-bg); 
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: var(--title-color); 
+    box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
+    outline: none;
+}
+
+.form-textarea { resize: none; height: 120px; }
+
+.form-button {
+    background-color: var(--primary-accent); 
+    color: var(--title-color);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: fit-content;
+    align-self: flex-end;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+    background-color: #B4D3D3; 
+    transform: translateY(-2px);
+}
+
+/* Responsive Kontak */
+@media (max-width: 768px) {
+    .hubungi-kami-container { flex-direction: column; border-radius: 0; box-shadow: none; }
+    .about-section-kontak, .contact-form { width: 100%; padding: 40px 20px; }
+    .hero-title { font-size: 2rem; }
+    .about-section-kontak p { color: var(--dark-text); }
+}
+
+/*=============== FOOTER ===============*/
+footer {
+    padding: 50px 0;
+    background-color: var(--secondary-accent); /* Warna Footer (Pastel Teal) */
+    color: var(--dark-text); 
+    margin-top: auto; 
+}
+
+.footer-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    row-gap: 50px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-box h2 {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    border-bottom-color: var(--primary-accent);
+}
+
+.footer-box a {
+    color: var(--dark-text);
+}
+.footer-box a:hover {
+    color: var(--title-color);
+}
+
+.footer-box .social a, .footer-box .box:nth-child(3) i {
+    color: var(--title-color); 
+}
+.footer-box .social a:hover {
+    color: var(--dark-text);
+}
+
+.copyright {
+    margin-top: 50px;
+    padding-top: 25px;
+}
+.copyright p {
+    color: var(--dark-text);
+}
+.copyright span {
+    color: var(--title-color);
+}
