@@ -60,7 +60,7 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--header-bg); /* Putih */
+    background-color: #D2E9E9; /* Putih */
     box-shadow: 0 2px 16px rgba(0, 0, 0, .05); /* Shadow tipis agar Header menonjol */
     z-index: 100;
 }
@@ -185,7 +185,7 @@ main {
     margin-bottom: 1rem;
     display: inline-block;
     padding: 15px;
-    background-color: var(--primary-accent); 
+    background-color: #E3F4F4; 
     border-radius: 50%;
     color: var(--title-color); 
 }
@@ -328,7 +328,7 @@ main {
 /*=============== FOOTER ===============*/
 footer {
     padding: 50px 0;
-    background-color: var(--secondary-accent); /* Warna Footer (Pastel Teal) */
+    background-color: var(--footer-bg); /* Warna Footer BARU */
     color: var(--dark-text); 
     margin-top: auto; 
 }
@@ -347,28 +347,57 @@ footer {
 .footer-box h2 {
     font-size: 1.5rem;
     color: var(--title-color);
-    border-bottom-color: var(--primary-accent);
+    border-bottom: 2px solid var(--primary-accent); /* Garis bawah accent */
+    padding-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 .footer-box a {
+    display: block; /* Membuat link navigasi ke bawah */
+    margin-bottom: 8px;
     color: var(--dark-text);
+    transition: color 0.3s ease, padding-left 0.3s ease;
 }
 .footer-box a:hover {
     color: var(--title-color);
+    padding-left: 5px; /* Efek bergeser saat hover */
 }
 
-.footer-box .social a, .footer-box .box:nth-child(3) i {
+.footer-box .social {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-box .social a {
+    font-size: 1.5rem;
     color: var(--title-color); 
+    transition: color 0.3s ease;
 }
 .footer-box .social a:hover {
-    color: var(--dark-text);
+    color: var(--footer-link-hover); /* Warna hover baru */
+}
+
+.footer-box .box:nth-child(3) p {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.footer-box .box:nth-child(3) i {
+    color: var(--title-color); 
+    margin-top: 5px;
 }
 
 .copyright {
     margin-top: 50px;
     padding-top: 25px;
+    border-top: 1px solid rgba(51, 51, 51, 0.1); /* Garis pemisah copyright */
+    text-align: center;
 }
 .copyright p {
+    font-size: 0.8rem;
     color: var(--dark-text);
 }
 .copyright span {
