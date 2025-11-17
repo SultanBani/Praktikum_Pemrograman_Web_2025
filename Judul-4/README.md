@@ -1,0 +1,6 @@
+![alt text](ImageFolder/loginform.png)
+![alt text](ImageFolder/indexmanajemen.png)
+![alt text](ImageFolder/edit.png)
+![alt text](ImageFolder/delete.png)
+![alt text](ImageFolder/konfirmasidelete.png)
+![alt text](ImageFolder/update.png)
