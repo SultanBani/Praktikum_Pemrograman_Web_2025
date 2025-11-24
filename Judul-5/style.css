@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #8DD8FF 0%, #BBFBFF 100%);
+    background: #ffffff;
     min-height: 100vh;
     padding: 20px;
 }
@@ -10,18 +10,19 @@ body {
 }
 
 .calculator {
-    background: white;
+    background: #e8dcc0;
+    border: 3px solid #8b7d5c;
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 20px 60px rgba(141, 216, 255, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .display-container {
-    background: #f8f9fa;
-    border: 2px solid #8DD8FF;
+    background: #4a5d3a;
+    border: 2px solid #3a4d2a;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     min-height: 120px;
 }
 
@@ -29,7 +30,7 @@ body {
     max-height: 60px;
     overflow-y: auto;
     font-size: 0.85rem;
-    color: #6c757d;
+    color: #a8b89a;
     margin-bottom: 10px;
     text-align: right;
     font-family: monospace;
@@ -40,7 +41,7 @@ body {
 }
 
 .history-display::-webkit-scrollbar-thumb {
-    background: #8DD8FF;
+    background: #5a6d4a;
     border-radius: 5px;
 }
 
@@ -51,7 +52,7 @@ body {
 }
 
 .history-item-inline:hover {
-    color: #8DD8FF;
+    color: #c8d8ba;
 }
 
 .display {
@@ -60,11 +61,12 @@ body {
     font-weight: bold;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    color: #b8c8a8;
 }
 
 .memory-indicator {
     font-size: 0.8rem;
-    color: #8DD8FF;
+    color: #a8b89a;
     margin-bottom: 5px;
     text-align: right;
 }
@@ -75,13 +77,14 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     transition: all 0.2s;
+    border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .btn-calc:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-calc:active {
@@ -89,54 +92,54 @@ body {
 }
 
 .btn-number {
-    background: #e9ecef;
-    border: none;
-    color: #212529;
+    background: #5a5a5a;
+    border: 2px solid #4a4a4a;
+    color: #ffffff;
 }
 
 .btn-number:hover {
-    background: #dee2e6;
+    background: #6a6a6a;
 }
 
 .btn-operator {
-    background: #8DD8FF;
-    border: none;
-    color: white;
+    background: #4a4a4a;
+    border: 2px solid #3a3a3a;
+    color: #ffffff;
 }
 
 .btn-operator:hover {
-    background: #6ac5f0;
+    background: #5a5a5a;
 }
 
 .btn-equals {
-    background: #28a745;
-    border: none;
+    background: #ff9500;
+    border: 2px solid #e68600;
     color: white;
 }
 
 .btn-equals:hover {
-    background: #218838;
+    background: #ffaa33;
 }
 
 .btn-clear {
-    background: #dc3545;
-    border: none;
+    background: #2a2a2a;
+    border: 2px solid #1a1a1a;
     color: white;
 }
 
 .btn-clear:hover {
-    background: #c82333;
+    background: #3a3a3a;
 }
 
 .btn-memory {
-    background: #BBFBFF;
-    border: none;
-    color: #212529;
+    background: #6a6a6a;
+    border: 2px solid #5a5a5a;
+    color: #ffffff;
     font-size: 1rem;
 }
 
 .btn-memory:hover {
-    background: #9ae9f5;
+    background: #7a7a7a;
 }
 
 .history-panel {
@@ -144,19 +147,19 @@ body {
     border-radius: 20px;
     padding: 20px;
     margin-top: 20px;
-    box-shadow: 0 10px 30px rgba(141, 216, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .history-item {
     padding: 10px;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #e0e0e0;
     font-family: monospace;
     cursor: pointer;
     transition: background 0.2s;
 }
 
 .history-item:hover {
-    background: #f8f9fa;
+    background: #f5f5f5;
 }
 
 .history-item:last-child {
