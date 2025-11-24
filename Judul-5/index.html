@@ -15,8 +15,7 @@
                 <div class="history-display" id="historyDisplay"></div>
                 <div class="display" id="display">0</div>
             </div>
-            
-            <!-- Memory Buttons -->
+          
             <div class="row mb-2">
                 <div class="col-3">
                     <button class="btn btn-calc btn-memory" onclick="memoryAdd()">M+</button>
@@ -32,7 +31,6 @@
                 </div>
             </div>
 
-            <!-- Clear Buttons -->
             <div class="row">
                 <div class="col-6">
                     <button class="btn btn-calc btn-clear" onclick="clearEntry()">CE</button>
@@ -42,7 +40,6 @@
                 </div>
             </div>
 
-            <!-- Number and Operator Buttons -->
             <div class="row">
                 <div class="col-3">
                     <button class="btn btn-calc btn-number" onclick="appendNumber('7')">7</button>
@@ -116,7 +113,6 @@
         const historyDisplay = document.getElementById('historyDisplay');
 
         function updateDisplay() {
-            // Tampilkan expression lengkap + nilai yang sedang diketik
             if (expression === '') {
                 display.textContent = currentValue;
             } else {
@@ -155,7 +151,6 @@
         function setOperator(op) {
             if (currentValue === '' || currentValue === '-') return;
             
-            // Tambahkan nilai saat ini ke expression
             if (expression === '') {
                 expression = currentValue;
             } else {
@@ -168,19 +163,15 @@
         }
 
         function evaluateExpression(expr) {
-            // Ganti operator visual dengan operator JavaScript
             expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
             
             try {
-                // Evaluasi expression dengan urutan operasi matematika yang benar
                 let result = Function('"use strict"; return (' + expr + ')')();
                 
-                // Cek pembagian dengan nol
                 if (!isFinite(result)) {
                     throw new Error('Pembagian dengan nol');
                 }
                 
-                // Round untuk menghindari floating point errors
                 result = Math.round(result * 100000000) / 100000000;
                 return result;
             } catch (e) {
@@ -192,16 +183,12 @@
             if (expression === '') return;
             
             try {
-                // Tambahkan nilai terakhir ke expression
                 const fullExpression = expression + ' ' + currentValue;
                 
-                // Evaluasi dengan urutan operasi matematika
                 const result = evaluateExpression(fullExpression);
                 
-                // Simpan ke history
                 addToHistory(`${fullExpression} = ${result}`);
                 
-                // Set hasil sebagai nilai baru
                 currentValue = String(result);
                 expression = '';
                 updateDisplay();
@@ -262,7 +249,6 @@
             updateDisplay();
         }
 
-        // Keyboard support
         document.addEventListener('keydown', function(e) {
             if (e.key >= '0' && e.key <= '9') {
                 appendNumber(e.key);
@@ -286,8 +272,6 @@
                 clearEntry();
             }
         });
-
-        // Initialize display
         updateDisplay();
     </script>
 </body>
