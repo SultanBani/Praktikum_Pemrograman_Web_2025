@@ -1,9 +1,7 @@
 let currentValue = '0';
-let previousValue = null;
-let operator = null;
-let waitingForOperand = false;
-let memory = 0;
+let expression = '';
 let history = [];
+let memory = 0;
 
 const display = document.getElementById('display');
 const memoryIndicator = document.getElementById('memoryIndicator');
@@ -41,79 +39,88 @@ function updateHistoryList() {
 }
 
 function appendNumber(num) {
-    if (waitingForOperand) {
+    if (num === '.' && currentValue.includes('.')) return;
+    
+    if (currentValue === '0' && num !== '.') {
         currentValue = String(num);
-        waitingForOperand = false;
     } else {
-        if (num === '.' && currentValue.includes('.')) return;
-        currentValue = currentValue === '0' ? String(num) : currentValue + num;
+        currentValue += String(num);
     }
     updateDisplay();
 }
 
 function setOperator(op) {
-    if (operator !== null && !waitingForOperand) {
-        calculate();
+    if (currentValue === '' || currentValue === '-') return;
+    
+    // Tambahkan nilai saat ini ke expression
+    if (expression === '') {
+        expression = currentValue;
+    } else {
+        expression += ' ' + currentValue;
     }
     
-    previousValue = parseFloat(currentValue);
-    operator = op;
-    waitingForOperand = true;
+    expression += ' ' + op;
+    currentValue = '0';
+    updateDisplay();
+}
+
+function evaluateExpression(expr) {
+    // Ganti operator visual dengan operator JavaScript
+    expr = expr.replace(/×/g, '*').replace(/÷/g, '/');
+    
+    try {
+        // Evaluasi expression dengan urutan operasi matematika yang benar
+        let result = Function('"use strict"; return (' + expr + ')')();
+        
+        // Cek pembagian dengan nol
+        if (!isFinite(result)) {
+            throw new Error('Pembagian dengan nol');
+        }
+        
+        // Round untuk menghindari floating point errors
+        result = Math.round(result * 100000000) / 100000000;
+        return result;
+    } catch (e) {
+        throw new Error('Error dalam perhitungan');
+    }
 }
 
 function calculate() {
-    if (operator === null || previousValue === null) return;
-
-    const current = parseFloat(currentValue);
-    let result;
-    const expression = `${previousValue} ${operator} ${current}`;
-
-    switch (operator) {
-        case '+':
-            result = previousValue + current;
-            break;
-        case '-':
-            result = previousValue - current;
-            break;
-        case '×':
-            result = previousValue * current;
-            break;
-        case '÷':
-            if (current === 0) {
-                alert('Error: Tidak bisa membagi dengan nol!');
-                clearAll();
-                return;
-            }
-            result = previousValue / current;
-            break;
-        default:
-            return;
+    if (expression === '') return;
+    
+    try {
+        // Tambahkan nilai terakhir ke expression
+        const fullExpression = expression + ' ' + currentValue;
+        
+        // Evaluasi dengan urutan operasi matematika
+        const result = evaluateExpression(fullExpression);
+        
+        // Simpan ke history
+        addToHistory(`${fullExpression} = ${result}`);
+        
+        // Set hasil sebagai nilai baru
+        currentValue = String(result);
+        expression = '';
+        updateDisplay();
+    } catch (e) {
+        alert('Error: ' + e.message);
+        clearAll();
     }
-
-    // Round to avoid floating point errors
-    result = Math.round(result * 100000000) / 100000000;
-    
-    addToHistory(`${expression} = ${result}`);
-    
-    currentValue = String(result);
-    operator = null;
-    previousValue = null;
-    waitingForOperand = true;
-    updateDisplay();
 }
 
 function clearAll() {
     currentValue = '0';
-    previousValue = null;
-    operator = null;
-    waitingForOperand = false;
+    expression = '';
     updateDisplay();
 }
 
 function clearEntry() {
     currentValue = '0';
-    waitingForOperand = false;
+    expression = '';
+    history = [];
     updateDisplay();
+    updateHistoryDisplay();
+    updateHistoryList();
 }
 
 function memoryAdd() {
