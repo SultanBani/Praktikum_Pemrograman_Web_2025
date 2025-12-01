@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cuaca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">🌤️ Dashboard Cuaca</h1>
+            <div class="header-controls">
+                <select id="updateIntervalSelect" class="interval-select" title="Pilih Interval Update Otomatis">
+                    <option value="5">Auto: 5 Menit</option>
+                    <option value="10">Auto: 10 Menit</option>
+                    <option value="30">Auto: 30 Menit</option>
+                </select>
+
+                <button id="tempToggle" class="btn-toggle" title="Ubah Satuan Suhu">°C / °F</button>
+                <button id="themeToggle" class="btn-toggle" title="Ubah Tema">🌙</button>
+                <button id="refreshBtn" class="btn-refresh" title="Perbarui Data">↻</button>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="citySearch" 
+                    class="search-input" 
+                    placeholder="Cari nama kota..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">Cari</button>
+            </div>
+            <div id="autocomplete" class="autocomplete"></div>
+        </div>
+
+        <div class="favorites-section">
+            <h3>Kota Favorit</h3>
+            <div id="favoriteCities" class="favorites-container"></div>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Memuat data cuaca...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+        <div id="currentWeather" class="current-weather">
+            <div class="weather-main">
+                <div class="location-info">
+                    <h2 id="cityName">---</h2>
+                    <p id="timestamp">---</p>
+                </div>
+                <div class="weather-icon-large">
+                    <img id="weatherIcon" src="" alt="Ikon Cuaca">
+                </div>
+            </div>
+            
+            <div class="temperature-display">
+                <div class="temp-main">
+                    <span id="temperature">--</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+                <p id="weatherDescription">---</p>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="detail-icon">💧</span>
+                    <div>
+                        <p class="detail-label">Kelembapan</p>
+                        <p id="humidity" class="detail-value">--%</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">💨</span>
+                    <div>
+                        <p class="detail-label">Kec. Angin</p>
+                        <p id="windSpeed" class="detail-value">-- m/s</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🌡️</span>
+                    <div>
+                        <p class="detail-label">Terasa Seperti</p>
+                        <p id="feelsLike" class="detail-value">--°</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="addFavoriteBtn" class="btn-favorite">⭐ Tambah ke Favorit</button>
+        </div>
+
+        <div class="forecast-section">
+            <h2>Prakiraan 5 Hari</h2>
+            <div id="forecast" class="forecast-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
